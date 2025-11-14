@@ -402,6 +402,62 @@
     </button>
 
     <script src="script.js"></script>
+    <!-- Backup mobile menu initialization -->
+    <script>
+        // Ensure mobile menu works on home page
+        (function() {
+            function initMobileMenu() {
+                const navToggle = document.getElementById('navToggle');
+                const navMenu = document.getElementById('navMenu');
+                
+                if (!navToggle || !navMenu) {
+                    return;
+                }
+                
+                // Remove existing listeners by cloning
+                if (navToggle.dataset.init === 'done') {
+                    return;
+                }
+                navToggle.dataset.init = 'done';
+                
+                navToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                    
+                    if (navMenu.classList.contains('active')) {
+                        document.body.classList.add('menu-open');
+                    } else {
+                        document.body.classList.remove('menu-open');
+                    }
+                });
+                
+                // Close menu when clicking links
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            navToggle.classList.remove('active');
+                            document.body.classList.remove('menu-open');
+                        }
+                    });
+                });
+            }
+            
+            // Try multiple times to ensure it works
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMobileMenu);
+            } else {
+                initMobileMenu();
+            }
+            
+            window.addEventListener('load', initMobileMenu);
+            setTimeout(initMobileMenu, 200);
+        })();
+    </script>
 </body>
 </html>
 

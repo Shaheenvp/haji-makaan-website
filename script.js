@@ -108,42 +108,118 @@ const menuItems = [
 ];
 
 // ===== DOM Elements =====
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
-const menuTabs = document.querySelectorAll('.menu-tab');
-const menuGrid = document.getElementById('menuGrid');
-const reservationForm = document.getElementById('reservationForm');
-const scrollTopBtn = document.getElementById('scrollTop');
+let navToggle, navMenu, navbar, navLinks, menuTabs, menuGrid, reservationForm, scrollTopBtn;
+
+// Initialize DOM elements when page loads
+function initDOMElements() {
+    // Get all DOM elements
+    navToggle = document.getElementById('navToggle');
+    navMenu = document.getElementById('navMenu');
+    navbar = document.getElementById('navbar');
+    navLinks = document.querySelectorAll('.nav-link');
+    menuTabs = document.querySelectorAll('.menu-tab');
+    menuGrid = document.getElementById('menuGrid');
+    reservationForm = document.getElementById('reservationForm');
+    scrollTopBtn = document.getElementById('scrollTop');
+    
+    // Initialize mobile navigation (only if elements exist)
+    if (navToggle && navMenu) {
+        // Initialize mobile navigation
+        initMobileNavigation();
+    }
+    
+    // Initialize smooth scroll
+    initSmoothScroll();
+}
 
 // ===== Mobile Navigation Toggle =====
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-});
+function initMobileNavigation() {
+    if (!navToggle || !navMenu) {
+        console.warn('Navigation elements not found', { navToggle, navMenu });
+        return;
+    }
 
-// Close mobile menu when clicking on a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
+    // Remove any existing event listeners by checking if already initialized
+    if (navToggle.dataset.initialized === 'true') {
+        return; // Already initialized
+    }
+    
+    navToggle.dataset.initialized = 'true';
+
+    // Mobile menu toggle
+    navToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isActive = navMenu.classList.contains('active');
+        
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        if (!isActive) {
+            document.body.classList.add('menu-open');
+        } else {
+            document.body.classList.remove('menu-open');
+        }
+        
+        console.log('Menu toggled:', !isActive);
     });
-});
+
+    // Close mobile menu when clicking on a link
+    if (navLinks && navLinks.length > 0) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    if (navToggle) navToggle.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            });
+        });
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navMenu && navToggle && navMenu.classList.contains('active')) {
+            const isClickInsideMenu = navMenu.contains(e.target);
+            const isClickOnToggle = navToggle.contains(e.target);
+            
+            if (!isClickInsideMenu && !isClickOnToggle) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        }
+    });
+
+    // Close mobile menu on window resize (if resizing to desktop)
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 968 && navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            if (navToggle) navToggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+}
 
 // ===== Navbar Scroll Effect =====
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (navbar) {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
 
     // Show/hide scroll to top button
-    if (window.scrollY > 500) {
-        scrollTopBtn.classList.add('visible');
-    } else {
-        scrollTopBtn.classList.remove('visible');
+    if (scrollTopBtn) {
+        if (window.scrollY > 500) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
     }
 
     // Update active nav link
@@ -154,24 +230,35 @@ window.addEventListener('scroll', () => {
 // (Handled by GSAP below)
 
 // ===== Smooth Scroll for Navigation Links =====
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+// This will be initialized after DOM elements are loaded
+function initSmoothScroll() {
+    if (navLinks && navLinks.length > 0) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href');
+                
+                // Only prevent default for anchor links
+                if (targetId && targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
             });
-        }
-    });
-});
+        });
+    }
+}
 
 // ===== Update Active Nav Link =====
 function updateActiveNavLink() {
+    if (!navLinks || navLinks.length === 0) return;
+    
     const sections = document.querySelectorAll('section[id]');
     const scrollY = window.pageYOffset;
 
@@ -183,7 +270,8 @@ function updateActiveNavLink() {
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
+                const href = link.getAttribute('href');
+                if (href === `#${sectionId}` || (href === '#home' && sectionId === 'home' && scrollY < 200)) {
                     link.classList.add('active');
                 }
             });
@@ -193,6 +281,8 @@ function updateActiveNavLink() {
 
 // ===== Render Menu Items =====
 function renderMenuItems(category = 'all') {
+    if (!menuGrid) return;
+    
     menuGrid.innerHTML = '';
     
     const filteredItems = category === 'all' 
@@ -238,55 +328,64 @@ function renderMenuItems(category = 'all') {
 }
 
 // ===== Menu Tab Filtering =====
-menuTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        // Remove active class from all tabs
-        menuTabs.forEach(t => t.classList.remove('active'));
-        // Add active class to clicked tab
-        tab.classList.add('active');
-        
-        // Filter menu items
-        const category = tab.getAttribute('data-category');
-        renderMenuItems(category);
-    });
-});
+function initMenuTabs() {
+    if (menuTabs && menuTabs.length > 0) {
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                menuTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Filter menu items
+                const category = tab.getAttribute('data-category');
+                renderMenuItems(category);
+            });
+        });
+    }
+}
 
 // ===== Initialize Menu =====
-renderMenuItems();
+if (menuGrid) {
+    renderMenuItems();
+    initMenuTabs();
+}
 
 // ===== Reservation Form Handling =====
-reservationForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        guests: document.getElementById('guests').value,
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value,
-        message: document.getElementById('message').value
-    };
+if (reservationForm) {
+    reservationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            guests: document.getElementById('guests').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            message: document.getElementById('message').value
+        };
 
-    // Validate date (must be today or future)
-    const selectedDate = new Date(formData.date);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
-    if (selectedDate < today) {
-        alert('Please select a valid date (today or future).');
-        return;
-    }
+        // Validate date (must be today or future)
+        const selectedDate = new Date(formData.date);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        if (selectedDate < today) {
+            alert('Please select a valid date (today or future).');
+            return;
+        }
 
-    // Show success message
-    showNotification('Reservation request submitted successfully! We will contact you shortly.', 'success');
-    
-    // Reset form
-    reservationForm.reset();
-    
-    // In a real application, you would send this data to a server
-    console.log('Reservation Data:', formData);
-});
+        // Show success message
+        showNotification('Reservation request submitted successfully! We will contact you shortly.', 'success');
+        
+        // Reset form
+        reservationForm.reset();
+        
+        // In a real application, you would send this data to a server
+        console.log('Reservation Data:', formData);
+    });
+}
 
 // ===== Notification System =====
 function showNotification(message, type = 'success') {
@@ -420,7 +519,36 @@ if ('loading' in HTMLImageElement.prototype) {
 }
 
 // ===== Initialize on Load =====
+// Multiple initialization strategies to ensure it works
+function initializeApp() {
+    // Initialize DOM elements
+    initDOMElements();
+    
+    // Set hero section to visible
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.opacity = '1';
+    }
+    
+    // Update active nav link
+    updateActiveNavLink();
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    // DOM is already ready - initialize immediately
+    initializeApp();
+}
+
+// Also initialize on window load as a fallback
 window.addEventListener('load', () => {
+    // Re-initialize if elements weren't found before
+    if (!navToggle || !navMenu) {
+        initDOMElements();
+    }
+    
     // Set hero section to visible
     const hero = document.querySelector('.hero');
     if (hero) {
@@ -430,6 +558,14 @@ window.addEventListener('load', () => {
     // Update active nav link
     updateActiveNavLink();
 });
+
+// Fallback: Try to initialize after a short delay if still not working
+setTimeout(() => {
+    if (!navToggle || !navMenu) {
+        console.log('Retrying initialization...');
+        initDOMElements();
+    }
+}, 100);
 
 // ===== Add smooth scroll behavior for all anchor links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
