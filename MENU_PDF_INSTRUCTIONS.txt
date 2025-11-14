@@ -1,0 +1,59 @@
+MENU PDF UPLOAD INSTRUCTIONS
+=============================
+
+Please upload your menu PDF files to the same folder as index.html
+
+REQUIRED FILES:
+---------------
+1. menu-dinein.pdf    - Your Dine-In Menu PDF
+2. menu-takeaway.pdf  - Your Takeaway Menu PDF
+
+FILE LOCATION:
+--------------
+Upload both PDF files to:
+/Users/Shaheen/
+
+(Or wherever your index.html file is located)
+
+IMPORTANT:
+----------
+- The filenames MUST be exactly:
+  * menu-dinein.pdf (for Dine-In menu)
+  * menu-takeaway.pdf (for Takeaway menu)
+  
+- Both files should be in PDF format (.pdf extension)
+
+- Make sure the PDFs are not password protected
+
+HOW IT WORKS:
+-------------
+- Two separate full-screen menu pages:
+  * menu-dinein.html (shows menu-dinein.pdf in full screen)
+  * menu-takeaway.html (shows menu-takeaway.pdf in full screen)
+
+- Each menu page features:
+  * Full-screen PDF viewer (takes up entire screen)
+  * Easy navigation between Dine-In and Takeaway menus
+  * Download button to save the menu
+  * Open in new tab option
+  * Back button to return to homepage
+
+- Users can:
+  * View the menu in full screen for better readability
+  * Switch between menu types using the menu switcher
+  * Download the menu PDF
+  * Open the menu in a new tab
+
+TESTING:
+--------
+After uploading the PDFs:
+1. Open menu-dinein.html in your browser - should show menu-dinein.pdf in full screen
+2. Open menu-takeaway.html in your browser - should show menu-takeaway.pdf in full screen
+3. Test the menu switcher to switch between pages
+4. Test the download and "Open in New Tab" buttons
+
+If the PDFs don't display:
+- Check that the filenames are exactly correct (case-sensitive)
+- Make sure the PDFs are in the same folder as the HTML files
+- Try opening the PDFs directly in your browser to ensure they're not corrupted
+- Check browser console for any error messages

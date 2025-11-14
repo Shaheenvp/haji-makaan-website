@@ -1,0 +1,49 @@
+IMAGE SETUP INSTRUCTIONS
+========================
+
+Please add the following images to the "images" folder in your project directory:
+
+1. restaurant-interior.jpg
+   - Location: About Section
+   - Recommended size: 1200x800px (or similar aspect ratio)
+   - Description: Interior photo of Haji Makaan Restaurant showing the dining area, ambiance, or decor
+   - Format: JPG or PNG
+
+2. menu-preview.jpg
+   - Location: Menu Section
+   - Recommended size: 1200x800px (or similar aspect ratio)
+   - Description: Photo of menu items, a table setting with dishes, or a menu display
+   - Format: JPG or PNG
+
+3. bistro-ambiance.jpg
+   - Location: Bistro Section
+   - Recommended size: 1200x800px (or similar aspect ratio)
+   - Description: Photo of the Bistro area, modern dining setup, or Bistro-specific dishes
+   - Format: JPG or PNG
+
+FOLDER STRUCTURE:
+-----------------
+Create an "images" folder in the same directory as your index.html file:
+
+/Users/Shaheen/
+├── index.html
+├── styles.css
+├── script.js
+├── images/
+│   ├── restaurant-interior.jpg
+│   ├── menu-preview.jpg
+│   └── bistro-ambiance.jpg
+└── logo.png
+
+IMAGE OPTIMIZATION TIPS:
+------------------------
+- Compress images to reduce file size (use tools like TinyPNG or ImageOptim)
+- Keep file sizes under 500KB for faster loading
+- Use JPG format for photos, PNG for graphics with transparency
+- Ensure images are high quality but optimized for web
+
+NOTE:
+-----
+If images are not available, the website will show gradient placeholders as fallbacks.
+You can add images later and they will automatically appear.
+

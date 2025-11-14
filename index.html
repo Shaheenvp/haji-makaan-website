@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Haji Makaan Restaurant - Premium dining experience in Edapally, Kochi. Authentic cuisine, Arabic Biriyani, Mandi, and more.">
+    <title>Haji Makaan Restaurant | Premium Dining in Edapally, Kochi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="logo.png" alt="Haji Makaan Restaurant Logo" class="logo-img">
+                    <span class="logo-text">Haji Makaan</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="menu-dinein.html" class="nav-link">Menu</a></li>
+                    <li><a href="#bistro" class="nav-link">Bistro</a></li>
+                    <li><a href="#reservations" class="nav-link">Reservations</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Welcome to</span>
+                <span class="title-main">Haji Makaan</span>
+            </h1>
+            <p class="hero-subtitle">Authentic Arabic & Middle Eastern Cuisine</p>
+            <p class="hero-description">Located in Edapally, Kochi</p>
+            <div class="hero-buttons">
+                <a href="menu-dinein.html" class="btn btn-primary">
+                    <i class="fas fa-utensils"></i> View Menu
+                </a>
+                <a href="#reservations" class="btn btn-secondary">
+                    <i class="fas fa-calendar-check"></i> Reserve Table
+                </a>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature-item">
+                    <i class="fas fa-clock"></i>
+                    <span>24x7</span>
+                </div>
+                <div class="hero-feature-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Edapally, Kochi</span>
+                </div>
+                <div class="hero-feature-item">
+                    <i class="fas fa-star"></i>
+                    <span>Premium Quality</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Haji Makaan Restaurant</h3>
+                    <p>We serve authentic Arabic and Middle Eastern cuisine in Edapally, Kochi. Our menu features traditional dishes including Arabic Biriyani, Beef Rib Mandi, Al Faham Mandi, and more.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop&q=80" alt="Haji Makaan Restaurant Interior" class="section-image" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes Section -->
+    <section class="featured-dishes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Dishes</h2>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop&q=80" alt="Beef Rib Mandi" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3>Beef Rib Mandi</h3>
+                    <p>Tender beef ribs slow-cooked with traditional spices, served with fragrant mandi rice.</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop&q=80" alt="Al Faham Mandi" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3>Al Faham Mandi</h3>
+                    <p>Succulent grilled chicken marinated in special spices, served with aromatic mandi rice.</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400&h=300&fit=crop&q=80" alt="Arabic Biriyani" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-bowl-rice"></i>
+                    </div>
+                    <h3>Arabic Biriyani</h3>
+                    <p>Fragrant basmati rice cooked with aromatic spices and tender meat, a signature dish.</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop&q=80" alt="Beef Dry Fry" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <h3>Beef Dry Fry</h3>
+                    <p>Crispy and flavorful beef pieces, perfectly spiced and fried to perfection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Menu</h2>
+            </div>
+            <div class="menu-teaser">
+                <div class="menu-teaser-content">
+                    <h3>View Our Menus</h3>
+                    <p>We have separate menus for dine-in and takeaway. Check out our selection of Arabic and Middle Eastern dishes.</p>
+                    <div class="menu-teaser-buttons">
+                        <a href="menu-dinein.html" class="btn btn-primary">
+                            <i class="fas fa-utensils"></i> View Dine-In Menu
+                        </a>
+                        <a href="menu-takeaway.html" class="btn btn-outline">
+                            <i class="fas fa-shopping-bag"></i> View Takeaway Menu
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-teaser-image">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=800&fit=crop&q=80" alt="Haji Makaan Menu Preview" class="section-image" loading="lazy">
+                </div>
+            </div>
+            <div class="menu-cta">
+                <a href="#reservations" class="btn btn-primary">Reserve Your Table</a>
+                <a href="tel:+91XXXXXXXXXX" class="btn btn-outline">Call for Takeaway</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Haji Makaan Bistro Section -->
+    <section id="bistro" class="bistro-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="bistro-badge-simple">
+                    <i class="fas fa-star"></i>
+                    <span>New Division</span>
+                </div>
+                <h2 class="section-title">Haji Makaan Bistro</h2>
+                <p class="section-subtitle">A Modern Culinary Experience</p>
+            </div>
+            <div class="bistro-showcase">
+                <div class="bistro-text">
+                    <h3>Discover Our Bistro</h3>
+                    <p>Haji Makaan Bistro brings you a modern dining experience with an exciting menu featuring crispy fried chicken, gourmet burgers, wraps, and contemporary favorites. Perfect for casual dining and quick bites.</p>
+                    <div class="bistro-features">
+                        <div class="bistro-feature">
+                            <i class="fas fa-drumstick-bite"></i>
+                            <span>Crispy Fried Chicken</span>
+                        </div>
+                        <div class="bistro-feature">
+                            <i class="fas fa-hamburger"></i>
+                            <span>Gourmet Burgers</span>
+                        </div>
+                        <div class="bistro-feature">
+                            <i class="fas fa-bread-slice"></i>
+                            <span>Wraps & Sandwiches</span>
+                        </div>
+                        <div class="bistro-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>24x7 Service</span>
+                        </div>
+                    </div>
+                    <div class="bistro-buttons">
+                        <a href="bistro.html" class="btn btn-primary">
+                            <i class="fas fa-store"></i> Explore Bistro
+                        </a>
+                        <a href="menu-bistro-dinein.html" class="btn btn-outline">
+                            <i class="fas fa-utensils"></i> View Menu
+                        </a>
+                    </div>
+                </div>
+                <div class="bistro-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=800&fit=crop&q=80" alt="Haji Makaan Bistro Ambiance" class="section-image" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="reservations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Reserve Your Table</h2>
+            </div>
+            <form class="reservation-form" id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Select</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6+ Guests</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Special Requests (Optional)</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Reserve Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Edapally, Kochi<br>Kerala, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@hajimakaan.com">info@hajimakaan.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Opening Hours</h4>
+                            <p>Monday - Sunday<br>11:00 AM - 11:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/hajimakaan/" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://share.google/xUPIuE6SnnkcnTNBh" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1!2d76.3!3d9.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTgnNDguMCJOIDc2wrAxOCcwMC4wIkU!5e0!3m2!1sen!2sin!4v1234567890" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Haji Makaan Restaurant Logo" class="logo-img">
+                        <span class="logo-text">Haji Makaan</span>
+                    </div>
+                    <p>Authentic Arabic and Middle Eastern cuisine in the heart of Edapally, Kochi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="menu-dinein.html">Menu</a></li>
+                        <li><a href="#reservations">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Edapally, Kochi</li>
+                        <li>Kerala, India</li>
+                        <li>+91 XXXXXXXXXX</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/hajimakaan/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://share.google/xUPIuE6SnnkcnTNBh" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Adnora Productions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

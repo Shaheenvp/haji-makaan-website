@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Haji Makaan Bistro - Takeaway Menu. Modern dining with fried chicken, burgers, wraps and more in Edapally, Kochi.">
+    <title>Bistro Takeaway Menu - Haji Makaan Bistro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--brown-dark);
+            overflow-x: hidden;
+        }
+        
+        .menu-page-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-medium) 100%);
+            color: var(--white);
+            padding: 1.5rem 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .menu-header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .menu-header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-3px);
+        }
+        
+        .menu-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .menu-header-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .menu-header-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--gold);
+        }
+        
+        .menu-header-btn:hover {
+            background: var(--gold-dark);
+            border-color: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .menu-header-btn.outline {
+            background: transparent;
+            border-color: var(--white);
+        }
+        
+        .menu-header-btn.outline:hover {
+            background: var(--white);
+            color: var(--brown-dark);
+        }
+        
+        .menu-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem;
+            border-radius: 50px;
+        }
+        
+        .menu-switcher a {
+            padding: 0.5rem 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .menu-switcher a.active {
+            background: var(--gold);
+            color: var(--brown-dark);
+        }
+        
+        .menu-switcher a:not(.active):hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .menu-container {
+            margin-top: 100px;
+            height: calc(100vh - 100px);
+            width: 100%;
+            position: relative;
+        }
+        
+        .menu-pdf-wrapper {
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            border: none;
+            position: relative;
+        }
+        
+        .menu-pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .menu-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--gray-dark);
+            z-index: 10;
+        }
+        
+        .menu-loading i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .menu-loading p {
+            font-size: 1.2rem;
+            color: var(--brown-dark);
+        }
+        
+        @media (max-width: 968px) {
+            .menu-header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .menu-header-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .menu-title {
+                font-size: 1.4rem;
+            }
+            
+            .menu-header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .menu-header-btn {
+                flex: 1;
+                justify-content: center;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .menu-container {
+                margin-top: 150px;
+                height: calc(100vh - 150px);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .menu-title {
+                font-size: 1.2rem;
+            }
+            
+            .menu-switcher {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .menu-switcher a {
+                flex: 1;
+                text-align: center;
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .menu-header-actions {
+                flex-direction: column;
+            }
+            
+            .menu-header-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Page Header -->
+    <div class="menu-page-header">
+        <div class="menu-header-content">
+            <div class="menu-header-left">
+                <a href="index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <h1 class="menu-title">
+                    <i class="fas fa-shopping-bag"></i> Bistro Takeaway Menu
+                </h1>
+            </div>
+            <div class="menu-switcher">
+                <a href="menu-bistro-dinein.html">Dine-In</a>
+                <a href="menu-bistro-takeaway.html" class="active">Takeaway</a>
+            </div>
+            <div class="menu-header-actions">
+                <a href="menu-bistro-takeaway.pdf" download="Haji-Makaan-Bistro-Takeaway-Menu.pdf" class="menu-header-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+                <a href="menu-bistro-takeaway.pdf" target="_blank" class="menu-header-btn outline">
+                    <i class="fas fa-external-link-alt"></i> New Tab
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Screen Menu Container -->
+    <div class="menu-container">
+        <div class="menu-pdf-wrapper">
+            <div class="menu-loading" id="loadingIndicator">
+                <i class="fas fa-spinner"></i>
+                <p>Loading menu...</p>
+            </div>
+            <iframe 
+                id="menuPdfViewer"
+                src="menu-bistro-takeaway.pdf" 
+                type="application/pdf"
+                class="menu-pdf-viewer"
+                title="Haji Makaan Bistro Takeaway Menu">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        // Hide loading indicator when PDF loads
+        const menuPdfViewer = document.getElementById('menuPdfViewer');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        
+        menuPdfViewer.addEventListener('load', () => {
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+        });
+        
+        // Handle PDF load errors
+        menuPdfViewer.addEventListener('error', () => {
+            if (loadingIndicator) {
+                loadingIndicator.innerHTML = `
+                    <i class="fas fa-exclamation-triangle" style="color: #f44336;"></i>
+                    <p>Menu PDF not found. Please ensure menu-bistro-takeaway.pdf is in the same folder.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
+

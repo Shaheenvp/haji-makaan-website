@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Haji Makaan Bistro - Modern dining experience with fried chicken, burgers, wraps and more. Open 24x7 in Edapally, Kochi.">
+    <title>Haji Makaan Bistro | Modern Dining Experience in Edapally, Kochi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Haji Makaan Restaurant Logo" class="logo-img">
+                    <span class="logo-text">Haji Makaan</span>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">Restaurant</a></li>
+                    <li><a href="bistro.html" class="nav-link active">Bistro</a></li>
+                    <li><a href="menu-bistro-dinein.html" class="nav-link">Menu</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bistro-hero">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="bistro-hero-badge">
+                <i class="fas fa-store"></i>
+                <span>New Division</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Welcome to</span>
+                <span class="title-main">Haji Makaan Bistro</span>
+            </h1>
+            <p class="hero-subtitle">Modern Dining, Timeless Taste</p>
+            <p class="hero-description">Experience contemporary cuisine with crispy fried chicken, gourmet burgers, wraps, and more. Open 24x7 for your convenience.</p>
+            <div class="hero-buttons">
+                <a href="menu-bistro-dinein.html" class="btn btn-primary">
+                    <i class="fas fa-utensils"></i> View Menu
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-map-marker-alt"></i> Visit Us
+                </a>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature-item">
+                    <i class="fas fa-clock"></i>
+                    <span>24x7</span>
+                </div>
+                <div class="hero-feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Quick Service</span>
+                </div>
+                <div class="hero-feature-item">
+                    <i class="fas fa-fire"></i>
+                    <span>Fresh & Hot</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Bistro Section -->
+    <section id="about" class="about-bistro">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Haji Makaan Bistro</h2>
+                <p class="section-subtitle">A Modern Culinary Experience</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Discover Our Bistro</h3>
+                    <p>Haji Makaan Bistro is our newest division, bringing you a fresh take on casual dining. We combine modern cooking techniques with quality ingredients to create dishes that are both familiar and exciting.</p>
+                    <p>From our signature crispy fried chicken to gourmet burgers, wraps, and contemporary favorites, every dish is prepared fresh to order. Perfect for quick lunches, casual dinners, or late-night cravings - we're open 24x7 to serve you.</p>
+                    <div class="bistro-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fresh ingredients daily</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quick service guaranteed</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24x7 availability</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Affordable prices</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=800&fit=crop&q=80" alt="Haji Makaan Bistro Interior" class="section-image" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes Section -->
+    <section class="featured-dishes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Signature Dishes</h2>
+                <p class="section-subtitle">Taste the Difference</p>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&h=300&fit=crop&q=80" alt="Crispy Fried Chicken" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3>Crispy Fried Chicken</h3>
+                    <p>Golden crispy chicken pieces, perfectly seasoned and fried to perfection. Available in various sizes and spice levels.</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=300&fit=crop&q=80" alt="Gourmet Burgers" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <h3>Gourmet Burgers</h3>
+                    <p>Juicy burgers made with premium ingredients, fresh vegetables, and special sauces. A complete meal in itself.</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400&h=300&fit=crop&q=80" alt="Wraps & Sandwiches" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <h3>Wraps & Sandwiches</h3>
+                    <p>Fresh wraps and sandwiches filled with your choice of fillings, vegetables, and sauces. Perfect for on-the-go.</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop&q=80" alt="Pizza" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <h3>Pizza</h3>
+                    <p>Delicious pizzas with fresh toppings, melted cheese, and crispy crust. Available in various sizes and flavors.</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&h=300&fit=crop&q=80" alt="Fish & Chips" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3>Fish & Chips</h3>
+                    <p>Classic fish and chips with crispy batter and golden fries. Served with tangy sauces and fresh lemon.</p>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop&q=80" alt="Desserts & Beverages" loading="lazy">
+                    </div>
+                    <div class="dish-icon">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <h3>Desserts & Beverages</h3>
+                    <p>Sweet treats and refreshing beverages to complete your meal. From milkshakes to ice creams and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Bistro Section -->
+    <section class="why-bistro">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Our Bistro</h2>
+                <p class="section-subtitle">What Makes Us Special</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24x7 Service</h3>
+                    <p>We're open round the clock, so you can satisfy your cravings anytime, day or night.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick Service</h3>
+                    <p>Fast preparation and service without compromising on quality. Perfect for busy schedules.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Fresh Ingredients</h3>
+                    <p>We use only the freshest ingredients, sourced daily to ensure the best taste and quality.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Great Value</h3>
+                    <p>Delicious food at affordable prices. Quality dining that won't break the bank.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Hot & Fresh</h3>
+                    <p>Every order is prepared fresh and served hot. No pre-made or reheated food.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Friendly Service</h3>
+                    <p>Warm hospitality and friendly staff make every visit a pleasant experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Menu</h2>
+                <p class="section-subtitle">Explore Our Complete Selection</p>
+            </div>
+            <div class="menu-teaser">
+                <div class="menu-teaser-content">
+                    <h3>View Our Bistro Menus</h3>
+                    <p>We offer separate menus for dine-in and takeaway. Browse through our exciting selection of modern dishes, from crispy fried chicken to gourmet burgers and more.</p>
+                    <div class="menu-teaser-buttons">
+                        <a href="menu-bistro-dinein.html" class="btn btn-primary">
+                            <i class="fas fa-utensils"></i> View Dine-In Menu
+                        </a>
+                        <a href="menu-bistro-takeaway.html" class="btn btn-outline">
+                            <i class="fas fa-shopping-bag"></i> View Takeaway Menu
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-teaser-image">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=800&fit=crop&q=80" alt="Haji Makaan Bistro Menu" class="section-image" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-subtitle">A Glimpse of Our Bistro</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=600&fit=crop&q=80" alt="Bistro Interior" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600&h=600&fit=crop&q=80" alt="Fried Chicken" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&h=600&fit=crop&q=80" alt="Gourmet Burgers" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&h=600&fit=crop&q=80" alt="Wraps & Sandwiches" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&h=600&fit=crop&q=80" alt="Pizza Selection" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=600&fit=crop&q=80" alt="Dining Experience" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Visit Us or Get in Touch</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Edapally, Kochi<br>Kerala, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:bistro@hajimakaan.com">bistro@hajimakaan.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Opening Hours</h4>
+                            <p>Open 24x7<br>Every Day</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/hajimakaan/" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://share.google/xUPIuE6SnnkcnTNBh" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1!2d76.3!3d9.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTgnNDguMCJOIDc2wrAxOCcwMC4wIkU!5e0!3m2!1sen!2sin!4v1234567890" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Haji Makaan Restaurant Logo" class="logo-img">
+                        <span class="logo-text">Haji Makaan Bistro</span>
+                    </div>
+                    <p>Modern dining experience with crispy fried chicken, gourmet burgers, wraps, and more. Open 24x7 in Edapally, Kochi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="bistro.html">Bistro</a></li>
+                        <li><a href="menu-bistro-dinein.html">Menu</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Edapally, Kochi</li>
+                        <li>Kerala, India</li>
+                        <li>+91 XXXXXXXXXX</li>
+                        <li>Open 24x7</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/hajimakaan/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://share.google/xUPIuE6SnnkcnTNBh" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Adnora Productions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        // Bistro-specific animations
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // Hero animations
+        const bistroHeroTimeline = gsap.timeline();
+        bistroHeroTimeline
+            .from('.bistro-hero-badge', {
+                opacity: 0,
+                scale: 0,
+                rotation: -180,
+                duration: 0.8,
+                ease: 'back.out(1.7)'
+            })
+            .from('.hero-title .title-line', {
+                opacity: 0,
+                y: -50,
+                duration: 1,
+                ease: 'power3.out'
+            }, '-=0.3')
+            .from('.hero-title .title-main', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power3.out'
+            }, '-=0.5')
+            .from('.hero-subtitle', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.5')
+            .from('.hero-description', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.3')
+            .from('.hero-buttons', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.3')
+            .from('.hero-features .hero-feature-item', {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out'
+            }, '-=0.3');
+
+        // Animate hero background pattern
+        gsap.to('.bistro-hero .hero-pattern', {
+            x: 50,
+            y: 50,
+            duration: 20,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+
+        // Section animations - ensure sections are visible first
+        gsap.set('.why-bistro, .menu, .gallery, .contact', { opacity: 1, visibility: 'visible' });
+        gsap.set('.feature-card, .dish-card, .gallery-item', { opacity: 1, visibility: 'visible' });
+
+        // Section headers animations
+        gsap.utils.toArray('.section-header').forEach(header => {
+            gsap.from(header, {
+                scrollTrigger: {
+                    trigger: header,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+
+        // About section
+        gsap.set('.about-content', { opacity: 1, visibility: 'visible' });
+        gsap.from('.about-content', {
+            scrollTrigger: {
+                trigger: '.about-content',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 60,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.highlight-item', {
+            scrollTrigger: {
+                trigger: '.bistro-highlights',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            x: -30,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out'
+        });
+
+        // Featured dishes
+        gsap.from('.dish-card', {
+            scrollTrigger: {
+                trigger: '.dishes-grid',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out'
+        });
+
+        // Why Bistro section
+        gsap.from('.feature-card', {
+            scrollTrigger: {
+                trigger: '.features-grid',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out'
+        });
+
+        // Gallery
+        gsap.from('.gallery-item', {
+            scrollTrigger: {
+                trigger: '.gallery-grid',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out'
+        });
+
+        // Contact section
+        gsap.from('.contact-item', {
+            scrollTrigger: {
+                trigger: '.contact-info',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            x: -40,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power2.out'
+        });
+
+        // Mobile navigation
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+
+        // Scroll to top
+        const scrollTopBtn = document.getElementById('scrollTop');
+        if (scrollTopBtn) {
+            ScrollTrigger.create({
+                start: 'top -100',
+                end: 99999,
+                onEnter: () => {
+                    gsap.to(scrollTopBtn, {
+                        opacity: 1,
+                        visibility: 'visible',
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                },
+                onLeaveBack: () => {
+                    gsap.to(scrollTopBtn, {
+                        opacity: 0,
+                        visibility: 'hidden',
+                        scale: 0.8,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', () => {
+                gsap.to(window, {
+                    duration: 1.5,
+                    scrollTo: {
+                        y: 0
+                    },
+                    ease: 'power3.inOut'
+                });
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        gsap.to(window, {
+                            duration: 1.5,
+                            scrollTo: {
+                                y: target,
+                                offsetY: 80
+                            },
+                            ease: 'power3.inOut'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

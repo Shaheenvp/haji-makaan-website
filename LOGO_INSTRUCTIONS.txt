@@ -1,0 +1,18 @@
+LOGO SETUP INSTRUCTIONS
+=======================
+
+To display your restaurant logo on the website:
+
+1. Save your logo file as "logo.png" in the same folder as index.html
+2. The logo should be:
+   - Square or rectangular format
+   - Recommended size: 200x200 pixels or larger
+   - PNG format with transparent background (preferred)
+   - The website will automatically resize it to 50x50 pixels in the navigation
+
+3. If you don't have the logo yet, the website will still work but show a broken image icon. You can add it later.
+
+The logo appears in:
+- Navigation bar (top left)
+- Footer section
+
